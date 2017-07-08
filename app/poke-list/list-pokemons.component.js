@@ -9,20 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var pokemon_service_1 = require("../shared/pokemon.service");
 var ListPokemonsComponent = (function () {
-    function ListPokemonsComponent() {
+    function ListPokemonsComponent(pokemonService) {
+        this.pokemonService = pokemonService;
     }
     ListPokemonsComponent.prototype.ngOnInit = function () {
+        // get all pokemons
+        this.getPokemons();
+    };
+    ListPokemonsComponent.prototype.getPokemons = function () {
+        var _this = this;
+        this.pokemonService.getPokemons()
+            .subscribe(function (pokemon) {
+            console.log(pokemon);
+            _this.pokemon = pokemon;
+        }, function (error) { return _this.errorMessage = error; });
     };
     return ListPokemonsComponent;
 }());
 ListPokemonsComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'selector',
+        selector: 'pk-list',
         templateUrl: 'list-pokemons.template.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [pokemon_service_1.PokemonService])
 ], ListPokemonsComponent);
 exports.ListPokemonsComponent = ListPokemonsComponent;
 //# sourceMappingURL=list-pokemons.component.js.map

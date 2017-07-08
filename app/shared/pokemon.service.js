@@ -10,10 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
 var PokemonService = (function () {
     function PokemonService(_http) {
         this._http = _http;
+        this.pokemonUrl = 'api/pokemons_25.json';
     }
+    PokemonService.prototype.getPokemons = function () {
+        return this._http.get(this.pokemonUrl).map(function (res) { return res.json(); })
+            .do(function (data) { return console.log(data); })
+            .catch(this.handleError);
+    };
+    PokemonService.prototype.handleError = function (error) {
+        var msg = 'Error status ${error.status} status ${error.statusText} at ${error.url}';
+        return Observable_1.Observable.throw(msg);
+    };
     return PokemonService;
 }());
 PokemonService = __decorate([
