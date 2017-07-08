@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var home_component_1 = require("./home/home.component");
+var add_pokemon_component_1 = require("./poke-add/add-pokemon.component");
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
@@ -18,6 +19,7 @@ AppRoutingModule = __decorate([
         imports: [
             router_1.RouterModule.forRoot([
                 { path: '', component: home_component_1.HomeComponent },
+                { path: 'add-pokemon', component: add_pokemon_component_1.AddPokemonComponent },
                 { path: '**', redirectTo: '', pathMatch: 'full' }
             ], { preloadingStrategy: router_1.PreloadAllModules })
         ],

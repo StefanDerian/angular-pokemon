@@ -9,19 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var pokemon_service_1 = require("../shared/pokemon.service");
 var AddPokemonComponent = (function () {
-    function AddPokemonComponent() {
+    function AddPokemonComponent(pokemonService, router) {
+        this.pokemonService = pokemonService;
+        this.router = router;
+        this.formPokemon = {};
+        this.cardTitle = "Add Pokemon";
     }
-    AddPokemonComponent.prototype.ngOnInit = function () {
+    AddPokemonComponent.prototype.savePokemon = function (formValues) {
+        var _this = this;
+        this.pokemonService.addPokemon(formValues)
+            .subscribe(function (res) {
+            console.log('pokemon saved');
+            _this.router.navigate(['/']);
+        }, function (error) { return console.log('error', error); });
     };
     return AddPokemonComponent;
 }());
 AddPokemonComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
+        selector: 'add-pokemon',
         templateUrl: 'add-pokemon.template.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [pokemon_service_1.PokemonService, router_1.Router])
 ], AddPokemonComponent);
 exports.AddPokemonComponent = AddPokemonComponent;
 //# sourceMappingURL=add-pokemon.component.js.map

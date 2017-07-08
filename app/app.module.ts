@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './nav/nav.component';
 
+
 import {PokemonData} from './shared/pokemon-data';
 
 import  {AddPokemonComponent} from './poke-add/add-pokemon.component';

@@ -16,6 +16,18 @@ var PokemonService = (function () {
         this._http = _http;
         this.pokemonUrl = 'api/pokemons2';
     }
+    PokemonService.prototype.addPokemon = function (pokemon) {
+        var headers = new http_1.Headers('Content-Type:application/json');
+        var options = new http_1.RequestOptions({ headers: headers });
+        var body = JSON.stringify(pokemon);
+        var url = "" + this.pokemonUrl;
+        return this._http.post(url, body, options)
+            .map(function (response) {
+            return response.json();
+        })
+            .do(function (data) { return console.log(data); })
+            .catch(this.handleError);
+    };
     PokemonService.prototype.getPokemons = function () {
         return this._http.get(this.pokemonUrl).map(function (res) { return res.json().data; })
             .do(function (data) { return console.log(data); })

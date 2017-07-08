@@ -13,6 +13,23 @@ export class PokemonService {
 	constructor(private _http: Http) { }
 
 
+	addPokemon(pokemon: any):Observable<Pokemon>{
+
+		let headers = new Headers('Content-Type:application/json');
+		let options = new RequestOptions({headers:headers});
+		let body = JSON.stringify(pokemon);
+		let url = `${this.pokemonUrl}`;
+
+		return this._http.post(url,body,options)
+		.map((response:Response)=>{
+			return response.json();
+		})
+		.do(data=>console.log(data))
+		.catch(this.handleError)
+
+		;
+
+	}
 
 	getPokemons():Observable<Pokemon[]>{
 		return this._http.get(this.pokemonUrl).map((res:Response)=><Pokemon[]> res.json().data)
