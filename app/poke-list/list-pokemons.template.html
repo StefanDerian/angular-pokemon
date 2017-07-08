@@ -13,7 +13,11 @@
                 </div>
                  <div class="card-block">
                   <h3 class="card-title text-center">{{ poke.name}}</h3>
+<<<<<<< HEAD
                    <p class="card-text text-center"><b>Species:</b> Poke Species</p>
+=======
+                   <p class="card-text text-center"><b>Species:</b> {{poke.species}}</p>
+>>>>>>> inmemoryRefactor
                     <button type="button" class="btn btn-info" *ngIf="poke.type.indexOf('Flying')!==-1">Flying</button>
                     <button type="button" class="btn btn-info" *ngIf="poke.type.indexOf('Electric')!==-1">Electric</button>
                     <button type="button" class="btn btn-info" *ngIf="poke.type.indexOf('Ice')!==-1">Ice</button>

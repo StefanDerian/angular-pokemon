@@ -14,15 +14,15 @@ var Observable_1 = require("rxjs/Observable");
 var PokemonService = (function () {
     function PokemonService(_http) {
         this._http = _http;
-        this.pokemonUrl = 'api/pokemons_25.json';
+        this.pokemonUrl = 'api/pokemons2';
     }
     PokemonService.prototype.getPokemons = function () {
-        return this._http.get(this.pokemonUrl).map(function (res) { return res.json(); })
+        return this._http.get(this.pokemonUrl).map(function (res) { return res.json().data; })
             .do(function (data) { return console.log(data); })
             .catch(this.handleError);
     };
     PokemonService.prototype.handleError = function (error) {
-        var msg = 'Error status ${error.status} status ${error.statusText} at ${error.url}';
+        var msg = "Error status " + error.status + " status " + error.statusText + " at " + error.url;
         return Observable_1.Observable.throw(msg);
     };
     return PokemonService;

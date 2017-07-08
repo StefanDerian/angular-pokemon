@@ -7,7 +7,7 @@ import { Pokemon } from './pokemon';
 export class PokemonService {
 
 
-	private pokemonUrl:string = 'api/pokemons_25.json';
+	private pokemonUrl:string = 'api/pokemons2';
 
 
 	constructor(private _http: Http) { }
@@ -15,13 +15,13 @@ export class PokemonService {
 
 
 	getPokemons():Observable<Pokemon[]>{
-		return this._http.get(this.pokemonUrl).map((res:Response)=><Pokemon[]> res.json())
+		return this._http.get(this.pokemonUrl).map((res:Response)=><Pokemon[]> res.json().data)
 		.do(data=>console.log(data))
 		.catch(this.handleError);
 	}
 
 	private handleError(error:Response){
-		let msg = 'Error status ${error.status} status ${error.statusText} at ${error.url}';
+		let msg = `Error status ${error.status} status ${error.statusText} at ${error.url}`;
 		return Observable.throw(msg);
 	}
 
