@@ -18,7 +18,7 @@
       <div class="col-md-4" *ngFor = "let poke of pokemon">
          <div class="card poke-row text-center">
             <div class="row text-center text-white">
-              <img class="rounded mx-auto d-block poke-img">
+              <img [src] = "poke.image" class="rounded mx-auto d-block poke-img">
                 </div>
                  <div class="card-block">
                   <h3 class="card-title text-center">{{ poke.name}}</h3>
