@@ -9,10 +9,12 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 var app_routing_1 = require("./app.routing");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var nav_component_1 = require("./nav/nav.component");
+var pokemon_data_1 = require("./shared/pokemon-data");
 var add_pokemon_component_1 = require("./poke-add/add-pokemon.component");
 var list_pokemons_component_1 = require("./poke-list/list-pokemons.component");
 var pokemon_service_1 = require("./shared/pokemon.service");
@@ -27,7 +29,8 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             app_routing_1.AppRoutingModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(pokemon_data_1.PokemonData)
         ],
         declarations: [app_component_1.AppComponent,
             home_component_1.HomeComponent,
