@@ -20,6 +20,19 @@ export class PokemonService {
 		.catch(this.handleError);
 	}
 
+
+	deletePokemon(pokemon:Pokemon): Observable<Response>{
+		let headers = new Headers('Content-Type:application/json');
+		let options = new RequestOptions({headers:headers});
+		let url = `${this.pokemonUrl}/${pokemon.id}`;
+
+
+		return this._http.delete(url,options).catch(this.handleError);
+
+
+	}
+
+
 	private handleError(error:Response){
 		let msg = `Error status ${error.status} status ${error.statusText} at ${error.url}`;
 		return Observable.throw(msg);

@@ -26,6 +26,12 @@ var ListPokemonsComponent = (function () {
             _this.pokemon = pokemon;
         }, function (error) { return _this.errorMessage = error; });
     };
+    ListPokemonsComponent.prototype.deletePokemon = function (pokemon) {
+        var _this = this;
+        this.pokemonService.deletePokemon(pokemon).subscribe(function () { }, function (error) { return _this.errorMessage = error; }, function () {
+            _this.getPokemons();
+        });
+    };
     return ListPokemonsComponent;
 }());
 ListPokemonsComponent = __decorate([

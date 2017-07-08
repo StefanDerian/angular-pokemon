@@ -21,6 +21,12 @@ var PokemonService = (function () {
             .do(function (data) { return console.log(data); })
             .catch(this.handleError);
     };
+    PokemonService.prototype.deletePokemon = function (pokemon) {
+        var headers = new http_1.Headers('Content-Type:application/json');
+        var options = new http_1.RequestOptions({ headers: headers });
+        var url = this.pokemonUrl + "/" + pokemon.id;
+        return this._http.delete(url, options).catch(this.handleError);
+    };
     PokemonService.prototype.handleError = function (error) {
         var msg = "Error status " + error.status + " status " + error.statusText + " at " + error.url;
         return Observable_1.Observable.throw(msg);
