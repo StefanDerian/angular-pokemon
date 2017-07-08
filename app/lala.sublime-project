@@ -1,0 +1,19 @@
+{
+	
+
+
+
+	"folders":
+	[
+		{
+			"file_exclude_patterns":[
+				"app/*.js",
+				"app/*.js.map"
+
+
+
+			],
+			"path": "D:\\angular2 exercises\\pokemon"
+		}
+	]
+}
