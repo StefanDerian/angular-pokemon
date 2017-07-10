@@ -28,7 +28,7 @@
                     <button type="button" class="btn btn-secondary" *ngIf="poke.type.indexOf('Normal')!==-1">Normal</button>
                     <button type="button" class="btn btn-secondary" *ngIf="poke.type.indexOf('Psychic')!==-1">Psychic</button>
                         <span class="card-link" hidden><i class="fa fa-pencil"></i></span>
-                          <span class="card-link text-warning">
+                          <span class="card-link text-warning" (click)="viewSinglePokemon(poke.id)">
                              <i class="fa fa-info-circle fa-2x"></i></span>
                           <span class="card-link text-danger"
                                      placement="right"
@@ -44,3 +44,4 @@
 </div>
 <br>
 
+<pokemon-modal #childModal [pokeDetails]="pokeDetails"></pokemon-modal>

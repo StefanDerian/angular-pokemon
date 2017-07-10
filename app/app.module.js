@@ -17,6 +17,7 @@ var nav_component_1 = require("./nav/nav.component");
 var pokemon_data_1 = require("./shared/pokemon-data");
 var add_pokemon_component_1 = require("./poke-add/add-pokemon.component");
 var list_pokemons_component_1 = require("./poke-list/list-pokemons.component");
+var pokemon_modal_component_1 = require("./poke-list/pokemon-modal.component");
 var pokemon_service_1 = require("./shared/pokemon.service");
 var ng2_bootstrap_1 = require("ng2-bootstrap");
 require("./shared/rxjs-extension");
@@ -39,7 +40,8 @@ AppModule = __decorate([
             home_component_1.HomeComponent,
             nav_component_1.NavbarComponent,
             add_pokemon_component_1.AddPokemonComponent,
-            list_pokemons_component_1.ListPokemonsComponent
+            list_pokemons_component_1.ListPokemonsComponent,
+            pokemon_modal_component_1.PokemonModalComponent
         ],
         providers: [pokemon_service_1.PokemonService],
         bootstrap: [app_component_1.AppComponent]

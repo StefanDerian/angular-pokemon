@@ -10,9 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var pokemon_service_1 = require("../shared/pokemon.service");
+var pokemon_modal_component_1 = require("./pokemon-modal.component");
 var ListPokemonsComponent = (function () {
-    function ListPokemonsComponent(pokemonService) {
+    function ListPokemonsComponent(pokemonService, viewContainerRef) {
         this.pokemonService = pokemonService;
+        this.viewContainerRef = viewContainerRef;
+        this.selectedPokemonLoaded = false;
     }
     ListPokemonsComponent.prototype.ngOnInit = function () {
         // get all pokemons
@@ -26,6 +29,14 @@ var ListPokemonsComponent = (function () {
             _this.pokemon = pokemon;
         }, function (error) { return _this.errorMessage = error; });
     };
+    ListPokemonsComponent.prototype.viewSinglePokemon = function (id) {
+        var _this = this;
+        this.pokemonService.getPokemonDetails(id)
+            .subscribe(function (pokemon) {
+            _this.pokeDetails = pokemon;
+            _this.childModal.show();
+        }, function (error) { return _this.errorMessage = error; });
+    };
     ListPokemonsComponent.prototype.deletePokemon = function (pokemon) {
         var _this = this;
         this.pokemonService.deletePokemon(pokemon).subscribe(function () { }, function (error) { return _this.errorMessage = error; }, function () {
@@ -34,13 +45,18 @@ var ListPokemonsComponent = (function () {
     };
     return ListPokemonsComponent;
 }());
+__decorate([
+    core_1.ViewChild('childModal'),
+    __metadata("design:type", pokemon_modal_component_1.PokemonModalComponent)
+], ListPokemonsComponent.prototype, "childModal", void 0);
 ListPokemonsComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'pk-list',
         templateUrl: 'list-pokemons.template.html'
     }),
-    __metadata("design:paramtypes", [pokemon_service_1.PokemonService])
+    __metadata("design:paramtypes", [pokemon_service_1.PokemonService,
+        core_1.ViewContainerRef])
 ], ListPokemonsComponent);
 exports.ListPokemonsComponent = ListPokemonsComponent;
 //# sourceMappingURL=list-pokemons.component.js.map

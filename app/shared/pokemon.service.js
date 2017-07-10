@@ -33,6 +33,12 @@ var PokemonService = (function () {
             .do(function (data) { return console.log(data); })
             .catch(this.handleError);
     };
+    PokemonService.prototype.getPokemonDetails = function (id) {
+        var url = this.pokemonUrl + "/" + id;
+        return this._http.get(url).map(function (res) { return res.json().data; })
+            .do(function (data) { return console.log(data); })
+            .catch(this.handleError);
+    };
     PokemonService.prototype.deletePokemon = function (pokemon) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
