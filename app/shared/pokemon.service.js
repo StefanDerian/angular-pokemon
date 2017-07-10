@@ -17,7 +17,7 @@ var PokemonService = (function () {
         this.pokemonUrl = 'api/pokemons2';
     }
     PokemonService.prototype.addPokemon = function (pokemon) {
-        var headers = new http_1.Headers('Content-Type:application/json');
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         var body = JSON.stringify(pokemon);
         var url = "" + this.pokemonUrl;
@@ -34,7 +34,7 @@ var PokemonService = (function () {
             .catch(this.handleError);
     };
     PokemonService.prototype.deletePokemon = function (pokemon) {
-        var headers = new http_1.Headers('Content-Type:application/json');
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         var url = this.pokemonUrl + "/" + pokemon.id;
         return this._http.delete(url, options).catch(this.handleError);

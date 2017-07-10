@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {Pokemon} from'./shared/pokemon';
+import {Pokemon} from'../shared/pokemon';
 import {PokemonService} from '../shared/pokemon.service';
 @Component({
 	moduleId: module.id,
@@ -19,7 +19,7 @@ export class AddPokemonComponent {
 			res=>{
 				console.log('pokemon saved');
 				this.router.navigate(['/']);
-			}.
+			},
 			error => console.log('error',error)
 
 

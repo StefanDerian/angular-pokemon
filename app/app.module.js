@@ -18,6 +18,7 @@ var pokemon_data_1 = require("./shared/pokemon-data");
 var add_pokemon_component_1 = require("./poke-add/add-pokemon.component");
 var list_pokemons_component_1 = require("./poke-list/list-pokemons.component");
 var pokemon_service_1 = require("./shared/pokemon.service");
+var ng2_bootstrap_1 = require("ng2-bootstrap");
 require("./shared/rxjs-extension");
 var AppModule = (function () {
     function AppModule() {
@@ -30,7 +31,9 @@ AppModule = __decorate([
             forms_1.FormsModule,
             app_routing_1.AppRoutingModule,
             http_1.HttpModule,
-            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(pokemon_data_1.PokemonData)
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(pokemon_data_1.PokemonData),
+            ng2_bootstrap_1.ModalModule.forRoot(),
+            ng2_bootstrap_1.TooltipModule.forRoot()
         ],
         declarations: [app_component_1.AppComponent,
             home_component_1.HomeComponent,

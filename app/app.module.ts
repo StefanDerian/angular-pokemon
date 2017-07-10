@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule} from '@angular/http';
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryWebApiModule, InMemoryDbService} from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -18,21 +18,27 @@ import  {ListPokemonsComponent} from './poke-list/list-pokemons.component';
 
 import {PokemonService} from './shared/pokemon.service';
 
+
+import {ModalModule, TooltipModule} from 'ng2-bootstrap';
+
+
 import './shared/rxjs-extension';
 
 @NgModule({
   imports: [ BrowserModule,
-                   FormsModule,
-                   AppRoutingModule,
-                    HttpModule,
-                    InMemoryWebApiModule.forRoot(PokemonData)
-                   ],
+  FormsModule,
+  AppRoutingModule,
+  HttpModule,
+  InMemoryWebApiModule.forRoot(PokemonData),
+  ModalModule.forRoot(),
+  TooltipModule.forRoot()
+  ],
   declarations: [ AppComponent,
-                          HomeComponent,
-                          NavbarComponent,
-                          AddPokemonComponent,
-                          ListPokemonsComponent
-                          ],
+  HomeComponent,
+  NavbarComponent,
+  AddPokemonComponent,
+  ListPokemonsComponent
+  ],
   providers: [ PokemonService ],
   bootstrap:    [ AppComponent ]
 })
