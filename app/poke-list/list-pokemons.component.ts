@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, ViewChild/**, ViewContainerRef**/} from '@angular/core';
 import {Pokemon} from '../shared/pokemon';
 import {PokemonService} from '../shared/pokemon.service';
 import {ModalDirective} from 'ng2-bootstrap';
@@ -18,7 +18,7 @@ export class ListPokemonsComponent implements OnInit {
 	errorMessage:string;
 
 	constructor(private pokemonService:PokemonService
-		private viewContainerRef:ViewContainerRef) {}
+		/**private viewContainerRef:ViewContainerRef**/) {}
 
 
 	selectedPokemonLoaded: boolean = false;

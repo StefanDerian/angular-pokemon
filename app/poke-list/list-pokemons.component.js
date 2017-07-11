@@ -12,9 +12,8 @@ var core_1 = require("@angular/core");
 var pokemon_service_1 = require("../shared/pokemon.service");
 var pokemon_modal_component_1 = require("./pokemon-modal.component");
 var ListPokemonsComponent = (function () {
-    function ListPokemonsComponent(pokemonService, viewContainerRef) {
+    function ListPokemonsComponent(pokemonService) {
         this.pokemonService = pokemonService;
-        this.viewContainerRef = viewContainerRef;
         this.selectedPokemonLoaded = false;
     }
     ListPokemonsComponent.prototype.ngOnInit = function () {
@@ -55,8 +54,7 @@ ListPokemonsComponent = __decorate([
         selector: 'pk-list',
         templateUrl: 'list-pokemons.template.html'
     }),
-    __metadata("design:paramtypes", [pokemon_service_1.PokemonService,
-        core_1.ViewContainerRef])
+    __metadata("design:paramtypes", [pokemon_service_1.PokemonService])
 ], ListPokemonsComponent);
 exports.ListPokemonsComponent = ListPokemonsComponent;
 //# sourceMappingURL=list-pokemons.component.js.map
